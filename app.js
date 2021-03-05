@@ -22,7 +22,7 @@ var router = express.Router();              // get an instance of the express Ro
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/parse/address', function(req, res) {
 	console.log(req.query)
-	const pythonProcess = spawn('/usr/bin/python3',["/home/test.py", req.query.address]);
+	const pythonProcess = spawn('/usr/bin/python3',["/home/parseaddress/test.py", req.query.address]);
 	pythonProcess.stdout.on('data', (data) => {
 		console.log('Success')
 		console.log(data.toString("utf8"))
@@ -40,7 +40,7 @@ router.get('/parse/address', function(req, res) {
 router.post('/parse/address/json', function(req, res) {
 	console.log(req.body)
 
-	const pythonProcess = spawn('/usr/bin/python3',["/home/test.py", req.body.address]);
+	const pythonProcess = spawn('/usr/bin/python3',["/home/parseaddress/test.py", req.body.address]);
 	pythonProcess.stdout.on('data', (data) => {
 		console.log('Success')
 		console.log(data.toString("utf8"))
