@@ -39,7 +39,7 @@ router.get('/parse/address', function(req, res) {
 //post method
 router.post('/parse/address/json', function(req, res) {
 	console.log(req.body)
-	#const pythonProcess = spawn('C:/msys64/usr/bin/python.exe',["C:/msys64/usr/bin/test.py", req.body.address]);
+
 	const pythonProcess = spawn('/usr/bin/python3',["/home/test.py", req.body.address]);
 	pythonProcess.stdout.on('data', (data) => {
 		console.log('Success')
