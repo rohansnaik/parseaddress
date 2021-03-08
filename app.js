@@ -65,6 +65,11 @@ res.json({'Success':'True'});
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 app.use('/rest', router);
+app.get('/', function(req, res) {
+res.json({'Success':'True'});
+
+       
+});
 
 // START THE SERVER
 // =============================================================================
