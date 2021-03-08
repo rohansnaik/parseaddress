@@ -13,7 +13,7 @@ const spawn = require("child_process").spawn;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port = process.env.PORT || 5000;        // set our port
+var port =5000;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
@@ -22,7 +22,7 @@ var router = express.Router();              // get an instance of the express Ro
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/parse/address', function(req, res) {
 	console.log(req.query)
-	const pythonProcess = spawn('/usr/bin/python3',["/home/parseaddress/test.py", req.query.address]);
+	const pythonProcess = spawn('C:/msys64/usr/bin/python.exe',["C:/msys64/usr/bin/test.py", req.query.address]);
 	pythonProcess.stdout.on('data', (data) => {
 		console.log('Success')
 		console.log(data.toString("utf8"))
@@ -39,8 +39,7 @@ router.get('/parse/address', function(req, res) {
 //post method
 router.post('/parse/address/json', function(req, res) {
 	console.log(req.body)
-
-	const pythonProcess = spawn('/usr/bin/python3',["/home/parseaddress/test.py", req.body.address]);
+	const pythonProcess = spawn('C:/msys64/usr/bin/python.exe',["C:/msys64/usr/bin/test.py", req.body.address]);
 	pythonProcess.stdout.on('data', (data) => {
 		console.log('Success')
 		console.log(data.toString("utf8"))
@@ -54,6 +53,13 @@ router.post('/parse/address/json', function(req, res) {
        
 });
 
+//Get method
+
+router.get('/test', function(req, res) {
+res.json({'Success':'True'});
+
+       
+});
 // more routes for our API will happen here
 
 // REGISTER OUR ROUTES -------------------------------
@@ -64,3 +70,6 @@ app.use('/rest', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+
+
