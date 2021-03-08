@@ -13,7 +13,7 @@ const spawn = require("child_process").spawn;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-var port =5000;        // set our port
+var port =50707;        // set our port
 
 // ROUTES FOR OUR API
 // =============================================================================
